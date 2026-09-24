@@ -5,12 +5,24 @@ test.describe('Тесты главной страницы', () => {
     await page.goto('http://users.bugred.ru/');
   });
   test('Проверка отображения элементов навигации хедера', async ({ page }) => {
-    await expect.soft(page.getByRole('link', { name: 'Пользователи' })).toBeVisible();
-    await expect.soft(page.getByRole('link', { name: 'Войти' })).toBeVisible();
-    await expect.soft(page.getByRole('link', { name: 'Посмотреть' }).first()).toBeVisible();
-    await expect.soft(page.getByRole('link', { name: 'Users' })).toBeVisible();
-    await expect.soft(page.getByRole('link', { name: 'О проекте' })).toBeVisible();
-    await expect.soft(page.getByRole('link', { name: 'Полная документация' })).toBeVisible();
+    test.step('Проверка отображения элемента "Пользователи"', async () => {
+      await expect.soft(page.getByRole('link', { name: 'Пользователи' })).toBeVisible();
+    });
+    test.step('Проверка отображения элемента "Войти"', async () => {
+      await expect.soft(page.getByRole('link', { name: 'Войти' })).toBeVisible();
+    });
+    test.step('Проверка отображения элемента "Посмотреть"', async () => {
+      await expect.soft(page.getByRole('link', { name: 'Посмотреть' }).first()).toBeVisible();
+    });
+    test.step('Проверка отображения элемента "Users"', async () => {
+      await expect.soft(page.getByRole('link', { name: 'Users' })).toBeVisible();
+    });
+    test.step('Проверка отображения элемента "Users"', async () => {
+      await expect.soft(page.getByRole('link', { name: 'О проекте' })).toBeVisible();
+    });
+    test.step('Проверка отображения элемента "Users"', async () => {
+      await expect.soft(page.getByRole('link', { name: 'Полная документация' })).toBeVisible();
+    });
   });
   test('Проверка названий элементов навигации хедера', async ({ page }) => {
     await expect.soft(page.getByRole('link', { name: 'Users' })).toContainText('Users');
